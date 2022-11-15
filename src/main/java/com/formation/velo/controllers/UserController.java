@@ -117,17 +117,4 @@ public class UserController {
 	public String showSignUpForm(User user) {
 		return "add-user";
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
