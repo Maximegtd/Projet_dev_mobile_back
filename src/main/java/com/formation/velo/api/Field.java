@@ -15,4 +15,10 @@ public class Field {
   private String adress;
   private String status;
   private double[] position;
+
+  private int grpDisponible;
+
+  private String grpNom;
+
+  private double[] location;
 }

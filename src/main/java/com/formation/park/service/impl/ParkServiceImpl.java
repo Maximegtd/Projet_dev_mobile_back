@@ -76,19 +76,21 @@ public class ParkServiceImpl implements ParkService {
           parkToUpdate.get()
               .setGrp_disponible(record.getField().getGrpDisponible());
           parkToUpdate.get()
-              .setGrp_identifiant(record.getField().getGrpIdentifiant());
-          parkToUpdate.get()
               .setGrp_nom(record.getField().getGrpNom());
           save(parkToUpdate.get());
         } else {
-          // on crée la park
+          double latitude = 0;
+          double longitude = 0;
+          if (record.getField().getLocation() != null) {
+            latitude = record.getField().getLocation()[0];
+            longitude = record.getField().getLocation()[1];
+          }
           Park newPark = Park.builder()
               .recordId(record.getRecordId())
               .grp_disponible(record.getField().getGrpDisponible())
-              .grp_identifiant(record.getField().getGrpIdentifiant())
               .grp_nom(record.getField().getGrpNom())
-              .lattitude(record.getField().getLocation()[0])
-              .longitude(record.getField().getLocation()[1])
+              .lattitude(latitude)
+              .longitude(longitude)
               .build();
           // on save
           save(newPark);

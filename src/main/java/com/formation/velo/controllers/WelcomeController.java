@@ -5,13 +5,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
-
-@Controller    // This means that this class is a Controller
+@Controller // This means that this class is a Controller
 
 public class WelcomeController {
-
 
     private final UserService userService;
 
@@ -20,14 +17,13 @@ public class WelcomeController {
     }
 
     @GetMapping("/welcome")
-    public ResponseEntity<String>  welcome(){
-        return  ResponseEntity.ok("Welcome");
+    public ResponseEntity<String> welcome() {
+        return ResponseEntity.ok("Welcome");
     }
-
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("users",userService.findAll());
+        model.addAttribute("users", userService.findAll());
         return "index";
     }
 }
