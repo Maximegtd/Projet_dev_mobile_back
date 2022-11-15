@@ -14,22 +14,11 @@ import java.io.Serializable;
 
 @Table(name = "park")
 public class Park implements Serializable {
-  private static final long serialVersionUID = -767070904974486421L;
-
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private String grp_identifiant;
-  private String grp_nom;
-  private Integer grp_disponible;
-  private double lattitude;
-  private double longitude;
-  private String recordId;
-
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((grp_identifiant == null) ? 0 : grp_identifiant.hashCode());
+    result = prime * result + ((id == null) ? 0 : id.hashCode());
     result = prime * result + ((grp_nom == null) ? 0 : grp_nom.hashCode());
     result = prime * result + ((grp_disponible == null) ? 0 : grp_disponible.hashCode());
     long temp;
@@ -50,10 +39,10 @@ public class Park implements Serializable {
     if (getClass() != obj.getClass())
       return false;
     Park other = (Park) obj;
-    if (grp_identifiant == null) {
-      if (other.grp_identifiant != null)
+    if (id == null) {
+      if (other.id != null)
         return false;
-    } else if (!grp_identifiant.equals(other.grp_identifiant))
+    } else if (!id.equals(other.id))
       return false;
     if (grp_nom == null) {
       if (other.grp_nom != null)
@@ -76,4 +65,15 @@ public class Park implements Serializable {
       return false;
     return true;
   }
+
+  private static final long serialVersionUID = -767070904974486421L;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Integer id;
+  private String grp_nom;
+  private Integer grp_disponible;
+  private double lattitude;
+  private double longitude;
+  private String recordId;
 }

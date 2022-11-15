@@ -34,11 +34,11 @@ public class ParkController {
   }
 
   @PostMapping("parks/add")
-  public ResponseEntity<Park> add(@RequestParam Integer grpDisponible, @RequestParam String grpIdentifiant,
-      @RequestParam String grpNom, @RequestParam String recordId) {
+  public ResponseEntity<Park> add(@RequestParam Integer grpDisponible, @RequestParam String grpNom,
+      @RequestParam Double lattitude, @RequestParam Double longitude, @RequestParam String recordId) {
 
-    Park park = parkService.save(Park.builder().grp_disponible(grpDisponible).grp_identifiant(grpIdentifiant)
-        .grp_nom(grpNom).recordId(recordId).build());
+    Park park = parkService.save(Park.builder().grp_disponible(grpDisponible).grp_nom(grpNom).lattitude(lattitude)
+        .longitude(longitude).recordId(recordId).build());
     return ResponseEntity.ok(park);
   }
 
